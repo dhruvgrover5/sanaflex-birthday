@@ -2,100 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy 20th Birthday Sana 🎉</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 20th Birthday My Baby 🎉</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
       text-align: center;
-      padding: 2rem;
     }
+
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
-      animation: pop 1.5s ease-in-out;
+      margin-top: 2rem;
+      animation: bounce 2s ease infinite;
     }
-    p {
-      font-size: 1.1rem;
-      margin: 1rem auto;
-      max-width: 700px;
-      line-height: 1.7;
-      animation: fadeIn 2s ease-in;
+
+    img {
+      max-width: 250px;
+      margin: 1rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
-    .cake {
-      width: 250px;
-      margin: 1rem auto;
-      border-radius: 10px;
-      animation: float 3s ease-in-out infinite;
+
+    img:hover {
+      transform: scale(1.05);
     }
+
+    .cake-cut {
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin-top: 2rem;
-    }
-    .gallery img {
-      width: 220px;
-      height: auto;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
-      animation: fadeIn 2s ease-in;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
+      padding: 2rem 0;
     }
 
-    footer {
-      margin-top: 3rem;
-      font-style: italic;
-      color: #bbb;
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0); }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <h1>happy 20th birthday my baby 🎉</h1>
 
-  <img src="cake.png.png" alt="Birthday Cake" class="cake" />
+  <!-- Cake Image -->
+  <img src="cake.png.png" alt="Birthday Cake" id="mainCake" />
+  <img src="cake-cut.png.png" alt="Cake Cut" id="cutCake" class="cake-cut" />
 
+  <!-- Audio -->
+  <audio id="cakeSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+
+  <!-- Message -->
   <p>
-    all the warm and best wishes to you for successfully getting out of teens. <br>
-    you are a champion and i am proud of you my baby. <br>
-    i love you the most my love.
+    all the warm and best wishes to you for successfully getting out of teens.<br>
+    you are a champion and i am proud of you my baby.<br>
+    i love you the most my love.<br>
+    <br>
+    ~ from dhruvii
   </p>
 
-  <footer>~ from dhruvii</footer>
-
+  <!-- Photo Gallery -->
   <div class="gallery">
-    <img src="cake-cut.png.png" alt="cake cut" />
-    <img src="sana.png.png" alt="sana" />
-    <img src="sana1.png.png" alt="sana1" />
-    <img src="sana2.png.png" alt="sana2" />
-    <img src="sana3.png.png" alt="sana3" />
+    <img src="sana.png.png" alt="Sana 1" />
+    <img src="sana1.png.png" alt="Sana 2" />
+    <img src="sana2.png.png" alt="Sana 3" />
+    <img src="sana3.png.png" alt="Sana 4" />
   </div>
+
+  <script>
+    const mainCake = document.getElementById("mainCake");
+    const cutCake = document.getElementById("cutCake");
+    const cakeSound = document.getElementById("cakeSound");
+
+    mainCake.addEventListener("click", () => {
+      mainCake.style.display = "none";
+      cutCake.style.display = "inline";
+      cakeSound.play();
+    });
+  </script>
 </body>
 </html>
