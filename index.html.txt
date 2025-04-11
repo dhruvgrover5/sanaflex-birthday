@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanaflex - Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container, .main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+    .login-container.active, .main-content.active {
+      display: flex;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: red;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .netflix-header {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: red;
+    }
+    .profile-card {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .birthday-content {
+      display: none;
+      text-align: center;
+      max-width: 600px;
+    }
+    .birthday-content.active {
+      display: block;
+    }
+    .cake-img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container active" id="loginContainer">
+    <h1>Welcome to Sanaflex</h1>
+    <input type="password" id="passwordInput" placeholder="Enter Password" />
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <div class="netflix-header">SANAFLEX</div>
+    <div class="profile-card" onclick="openBirthday()">
+      <img src="https://i.imgur.com/dYcYQ7E.png" alt="Sana" class="profile-img" />
+      <div>SANAAAAAAA</div>
+    </div>
+  </div>
+
+  <div class="birthday-content" id="birthdayContent">
+    <h1>Happy 20th Birthday My Baby 🎉</h1>
+    <img src="https://i.imgur.com/kzdR9QG.png" alt="Cake" class="cake-img" />
+    <p>
+      All the warm and best wishes to you for successfully getting out of teens.<br />
+      you are a champion and i am proud of you my baby.<br />
+      i love you the most my love.<br /><br />
+      ~ From dhruvii 
+    </p>
+    <audio autoplay loop>
+      <source src="https://files.catbox.moe/td4k7o.mp3" type="audio/mp3" />
+    </audio>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === "20APRIL") {
+        document.getElementById("loginContainer").classList.remove("active");
+        document.getElementById("mainContent").classList.add("active");
+      } else {
+        alert("Incorrect password. Try again!");
+      }
+    }
+
+    function openBirthday() {
+      document.getElementById("mainContent").classList.remove("active");
+      document.getElementById("birthdayContent").classList.add("active");
+    }
+  </script>
+</body>
+</html>
