@@ -1,104 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 20th Birthday My Baby 🎉</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0e0e0e;
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanaflix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 2rem;
-      animation: bounce 2s ease infinite;
-    }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
 
-    img {
-      max-width: 250px;
-      margin: 1rem;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #e50914;
+        }
 
-    img:hover {
-      transform: scale(1.05);
-    }
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+        }
 
-    .cake-cut {
-      display: none;
-      animation: fadeIn 1s ease-in-out forwards;
-    }
+        button {
+            padding: 10px 20px;
+            background-color: #e50914;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 2rem 0;
-    }
+        .hidden {
+            display: none;
+        }
 
-    p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
-    }
+        .birthday-container {
+            text-align: center;
+            margin-top: 30px;
+        }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+        .birthday-container img {
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-  </style>
+        .birthday-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 150px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>happy 20th birthday my baby 🎉</h1>
+    <div class="login-container" id="login">
+        <h1>Sanaflix</h1>
+        <input type="text" id="username" placeholder="Profile name"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button onclick="login()">Enter</button>
+    </div>
 
-  <!-- Cake Image -->
-  <img src="cake.png.png" alt="Birthday Cake" id="mainCake" />
-  <img src="cake-cut.png.png" alt="Cake Cut" id="cutCake" class="cake-cut" />
+    <div class="birthday-container hidden" id="main">
+        <h1>happy 20th birthday my baby 🎉</h1>
+        <img src="cake.png.png" id="cake" onclick="revealCake()">
+        <p id="message">
+            all the warm and best wishes to you for successfully getting out of teens.<br>
+            you are a champion and i am proud of you my baby.<br>
+            i love you the most my love.<br><br>
+            ~ from dhruvii
+        </p>
+        <div class="gallery">
+            <img src="sana.png.png">
+            <img src="sana1.png.png">
+            <img src="sana2.png.png">
+            <img src="sana3.png.png">
+        </div>
+    </div>
 
-  <!-- Audio -->
-  <audio id="cakeSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+    <audio id="clickSound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
 
-  <!-- Message -->
-  <p>
-    all the warm and best wishes to you for successfully getting out of teens.<br>
-    you are a champion and i am proud of you my baby.<br>
-    i love you the most my love.<br>
-    <br>
-    ~ from dhruvii
-  </p>
+    <script>
+        function login() {
+            const user = document.getElementById('username').value.toLowerCase();
+            const pass = document.getElementById('password').value;
+            if (user === "sana" && pass === "20april") {
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('main').classList.remove('hidden');
+            } else {
+                alert("Invalid credentials, try again!");
+            }
+        }
 
-  <!-- Photo Gallery -->
-  <div class="gallery">
-    <img src="sana.png.png" alt="Sana 1" />
-    <img src="sana1.png.png" alt="Sana 2" />
-    <img src="sana2.png.png" alt="Sana 3" />
-    <img src="sana3.png.png" alt="Sana 4" />
-  </div>
-
-  <script>
-    const mainCake = document.getElementById("mainCake");
-    const cutCake = document.getElementById("cutCake");
-    const cakeSound = document.getElementById("cakeSound");
-
-    mainCake.addEventListener("click", () => {
-      mainCake.style.display = "none";
-      cutCake.style.display = "inline";
-      cakeSound.play();
-    });
-  </script>
+        function revealCake() {
+            const cake = document.getElementById('cake');
+            const sound = document.getElementById('clickSound');
+            cake.src = 'cake-cut.png.png';
+            sound.play();
+        }
+    </script>
 </body>
+
 </html>
+
